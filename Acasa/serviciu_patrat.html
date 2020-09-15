@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<input type ="number" ng-model ="nr" value = "2"> 
+<h1>{{nr}}^2 = {{rez}}</h1>
+
+</div>
+ 
+
+<script>
+var app = angular.module('myApp', []);
+
+app.service('spatrat', function() {
+    this.patratul = function (x) {
+        return x * x
+    }
+});
+app.controller('myCtrl', function($scope, spatrat) {
+  	$scope.rez = spatrat.patratul($scope.nr);
+});
+</script>
+
+</body>
+</html>
