@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>2. serviciu ridică la pătrat valoarea X dată din input</p>
+<p><input type="number" ng-model="numarul" ng-change="rezolva()"></p>
+<p>{{numarul}} la patrat este: {{raspuns}}</p>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.service('serviciuPatrat', function() {
+    this.patrat = function (x) {
+        return x*x;
+    }
+});
+app.controller('myCtrl', function($scope, serviciuPatrat) {
+	$scope.rezolva = function(){
+          $scope.raspuns = serviciuPatrat.patrat($scope.numarul);
+      }
+  
+});
+</script>
+</body>
+</html>

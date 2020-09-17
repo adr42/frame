@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+  <p>6.	de afișat lista studenților în formă de tabel</p>
+<table width = "100%">
+<th>Nume</th>
+<th>Prenume</th>
+<th>Nota</th>
+  <tr ng-repeat="x in students">
+    <td>{{ x.nume }}</td>
+    <td>{{ x.prenume }}</td>
+ 	<td>{{ x.nota }}</td>
+  </tr>
+</table>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope) {
+   
+     $scope.students = [
+        {nume:'Adrian',prenume:'Hincu', nota: 2},
+        {nume:'Ion',prenume:'Placinta', nota: 5},
+        {nume:'Cristi',prenume:'Ursu', nota: 6},
+        {nume:'Cristina',prenume:'Rusu', nota: 7},
+        {nume:'Sergiu',prenume:'Turcanu', nota: 8},
+        {nume:'Vadim',prenume:'Bulat', nota: 9},
+        {nume:'Vlad',prenume:'Plahotniuc', nota: 2},
+        {nume:'Igor',prenume:'Dodon', nota: 2},
+        {nume:'Maia',prenume:'Sandu', nota: 10}
+        ];
+});
+</script>
+
+</body>
+</html>
