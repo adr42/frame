@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!{% endblock %}
+
+{% block body %}
+<style>
+   
+</style>
+
+       <div class="album py-5 bg-light">
+        <div class="container">
+     <div class="album py-5 bg-light">
+        <div class="container">
+
+
+<form action="{{path('create_product')}}">
+    <button type="submit" >Creaza Product Nou</button>
+    </br>
+    </br>
+    </br>
+</form>
+
+    
+      <div class="row">
+
+      	{% for product in products %}
+        <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="{{product.getImageUrl()}}" alt="image cap">
+                <div class="card-body">
+                <p class="card-text">Produs: {{product.name}}</p>
+                  <p class="card-text">Descriere: {{product.description}}</p>
+                    <p class="card-text">Pretul: {{product.price}} MDL</p>
+                  <p class="card-text">Categoria: {{product.getCategory().name}}</p>
+
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href = "{{path('edit_product',{id:product.id})}}">Editeaza</a></button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href = "{{path('delete_product',{id:product.id})}}"> Sterge </a> </button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+      
+        
+        {%endfor%}
+
+    </div>
+        </div>
+            </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
+
+
+{% endblock %}
